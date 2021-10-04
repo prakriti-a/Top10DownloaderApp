@@ -142,6 +142,8 @@ class MainActivity : AppCompatActivity() {
                 return rssFeed
             }
 
+            // tightly coupled with other classes
+            // this class is meant specifically for downloading XML data that conforms to RSS specs, not other data
             override fun onPostExecute(result: String) { // runs on main thread
                 super.onPostExecute(result)
                 Log.i(TAG, "onPostExecute called") // $result") // result is returned value of doInBackground
