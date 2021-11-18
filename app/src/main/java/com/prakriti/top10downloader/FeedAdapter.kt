@@ -25,7 +25,7 @@ class FeedViewHolder(view: View) {
     }
 }
 
-class FeedAdapter(context: Context, private val resLayout: Int, private val appFeedEntryList : List<FeedEntry>)
+class FeedAdapter(context: Context, private val resLayout: Int, private var appFeedEntryList : List<FeedEntry>)
             : ArrayAdapter<FeedEntry>(context, resLayout) { // constructor
 
     private val TAG = "FeedAdapter"
@@ -61,5 +61,10 @@ class FeedAdapter(context: Context, private val resLayout: Int, private val appF
     override fun getCount(): Int {
 //        Log.d(TAG, "getCount called")
         return appFeedEntryList.size
+    }
+
+    fun setFeedList(feedEntryList: List<FeedEntry>) {
+        appFeedEntryList = feedEntryList
+        notifyDataSetChanged()
     }
 }
